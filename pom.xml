@@ -43,6 +43,7 @@
 	<!-- Committing and updating changes through Maven, by using below mvn command. 
 		For Commiting mvn -Dmessage="Updated using maven" scm:checkin For updating 
 		mvn scm:update -->
+	<!--
 	<scm>
 		<connection>scm:git:https://github.com/MithunTechnologiesDevOps/maven-standalone-application</connection>
 		<developerConnection>scm:git:https://github.com/MithunTechnologiesDevOps/maven-standalone-application</developerConnection>
@@ -55,4 +56,25 @@
 		<url>https://github.com/MithunTechnologiesDevOps/maven-standalone-application/issues</url>
 	</issueManagement>
 
+	-->
+	<build>
+	  <plugins>
+	    <plugin>
+	      <!-- Build an executable JAR -->
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-jar-plugin</artifactId>
+	      <version>3.1.0</version>
+	      <configuration>
+	        <archive>
+	          <manifest>
+	            <addClasspath>true</addClasspath>
+	            <classpathPrefix>lib/</classpathPrefix>
+	            <mainClass>com.mt.sample.HelloWorld</mainClass>
+	          </manifest>
+	        </archive>
+	      </configuration>
+	    </plugin>
+	  </plugins>
+	</build>
+	
 </project>
